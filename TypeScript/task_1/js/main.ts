@@ -10,3 +10,10 @@ interface Teacher {
 interface Directors extends Teacher {
     numberOfReports: number;
 }
+
+interface printTeacher {
+    (firstName: string, lastName: string): string;
+}
+const printTeacher: printTeacher = function(firstName, lastName) {
+    return `${firstName.charAt(0).toUpperCase()}. ${lastName}`;
+}
