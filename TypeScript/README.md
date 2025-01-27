@@ -1,4 +1,4 @@
-### Learning Objectives
+### Learning Objectives
 
 * Basic types in Typescript
 * Interfaces, Classes, and functions
