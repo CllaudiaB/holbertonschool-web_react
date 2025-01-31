@@ -1,7 +1,7 @@
 import $ from "jquery";
 
-const p1 = $("<p>Holberton Dashboard</p>");
-const p2 = $("<p>Dashboard data for the students</p>");
-const p3 = $("<p>Copyright - Holberton School</p>");
+const p1 = $("<p>").text("Holberton Dashboard");
+const p2 = $("<p>").text("Dashboard data for the students");;
+const p3 = $("<p>").text("Copyright - Holberton School");
 
 $("body").append(p1, p2, p3);
