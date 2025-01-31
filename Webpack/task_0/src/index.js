@@ -1,7 +1,7 @@
 var $ = require( "jquery" );
 
-const p1 = $("<p>Holberton Dashboard</p>");
-const p2 = $("<p>Dashboard data for the students</p>");
-const p3 = $("<p>Copyright - Holberton School</p>");
+const p1 = $("<p></p>)").text("Holberton Dashboard");
+const p2 = $("<p></p>)").text("Dashboard data for the students");
+const p3 = $("<p></p>)").text("Copyright - Holberton School");
 
 $("body").append(p1).append(p2).append(p3);
