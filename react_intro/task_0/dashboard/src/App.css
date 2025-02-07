@@ -1,9 +1,6 @@
 .App-header {
   display: flex;
   border-bottom: solid #e1003c;
-}
-
-.App-header h1 {
   color: #e1003c;
   line-height: 330px;
 }
