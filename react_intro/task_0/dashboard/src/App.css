@@ -5,10 +5,7 @@
 
 .App-header h1 {
   color: #e1003c;
-}
-
-.App-header img {
-  margin-left: 25px;
+  line-height: 330px;
 }
 
 .App-body {
@@ -18,7 +15,7 @@
 
 .App-body p {
   margin-top: 35px;
-  margin-left: 25px;
+  margin-left: 40px;
 
 }
 

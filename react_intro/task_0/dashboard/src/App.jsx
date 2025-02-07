@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import holbertonLogo from "./assets/holberton-logo.jpg";
 import './App.css'
 
 function App() {
@@ -7,7 +8,7 @@ function App() {
   return (
     <>
       <div class="App-header">
-        <img src="./assets/holberton-logo.jpg" alt="holberton logo"></img>
+        <img src={holbertonLogo} alt="holberton logo"></img>
         <h1>School dashboard</h1>
       </div>
       <div class="App-body">
