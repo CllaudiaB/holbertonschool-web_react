@@ -15,7 +15,7 @@ function App() {
         <p>Login to access the full dashboard</p>
       </div>
       <div class="App-footer">
-        <p><i>Copyright 2024 - holberton School</i></p>
+        <p>Copyright 2024 - holberton School</p>
       </div>
     </>
   )

@@ -1,6 +1,6 @@
 .App-header {
   display: flex;
-  border-bottom: solid red;
+  border-bottom: solid #e1003c;
 }
 
 .App-header h1 {
@@ -9,7 +9,7 @@
 }
 
 .App-body {
-  border-bottom: solid red;
+  border-bottom: solid #e1003c;
   padding-bottom: 680px;
 }
 
@@ -21,4 +21,5 @@
 
 .App-footer {
   text-align: center;
+  font-style: italic;
 }
