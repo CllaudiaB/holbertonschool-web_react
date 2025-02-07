@@ -1,0 +1,27 @@
+.App-header {
+  display: flex;
+  border-bottom: solid red;
+}
+
+.App-header h1 {
+  color: #e1003c;
+}
+
+.App-header img {
+  margin-left: 25px;
+}
+
+.App-body {
+  border-bottom: solid red;
+  padding-bottom: 680px;
+}
+
+.App-body p {
+  margin-top: 35px;
+  margin-left: 25px;
+
+}
+
+.App-footer {
+  text-align: center;
+}
