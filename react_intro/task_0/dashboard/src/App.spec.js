@@ -1,4 +1,4 @@
-import {render, screen} from '@testing-library/react'
+import {getByRole, render, screen} from '@testing-library/react'
 import App from './App'
 
 
@@ -6,8 +6,7 @@ describe("App", () => {
     it("check if the h1 element with the text School dashboard", () => {
       render(<App />);
   
-      const title = screen.getByText(/school dashboard/i);
-      expect(title).toBeInTheDocument();
+      const title = screen.getByRole("heading", {level:1, desription:"School Dashboard"});
     });
 
     it("check 2 p elements", () => {
