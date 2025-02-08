@@ -6,7 +6,7 @@ describe("App", () => {
     it("check if the h1 element with the text School dashboard", () => {
       render(<App />);
   
-      const title = screen.getByRole("heading", {level:1, desription:/School Dashboard/i});
+      const title = screen.getByRole("heading", {level:1, name:/School Dashboard/i});
       expect(title).toBeInTheDocument();
     });
 
