@@ -1,4 +1,4 @@
-import {getByRole, render, screen} from '@testing-library/react'
+import {render, screen} from '@testing-library/react'
 import App from './App'
 
 
@@ -13,8 +13,8 @@ describe("App", () => {
     it("check 2 p elements", () => {
         render(<App />);
     
-        const paragraph1 = screen.getByText(/login to access the full dashboard/i);
-        const paragraph2 = screen. getByText(/copyright 2025 - holberton school/i);
+        const paragraph1 = screen.getByText(/Login to access the full dashboard/i);
+        const paragraph2 = screen. getByText(/Copyright 2024 - holberton School/i);
         expect(paragraph1).toBeInTheDocument();
         expect(paragraph2).toBeInTheDocument();
       });
