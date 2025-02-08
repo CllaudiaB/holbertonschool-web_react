@@ -7,7 +7,7 @@ describe("App", () => {
       render(<App />);
   
       const title = screen.getByRole("heading", {level:1, desription:/School Dashboard/i});
-      expect(title).toBeInTheDocument
+      expect(title).toBeInTheDocument();
     });
 
     it("check 2 p elements", () => {
