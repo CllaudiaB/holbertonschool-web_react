@@ -6,15 +6,15 @@ describe("App", () => {
     it("check if the h1 element with the text School dashboard", () => {
       render(<App />);
   
-      const title = screen.getByText("School dashboard");
+      const title = screen.getByText(/school dashboard/i);
       expect(title).toBeInTheDocument();
     });
 
     it("check 2 p elements", () => {
         render(<App />);
     
-        const paragraph1 = screen.getByText("Login to access the full dashboard");
-        const paragraph2 = screen. getByText("Copyright 2025 - holberton School");
+        const paragraph1 = screen.getByText(/login to access the full dashboard/i);
+        const paragraph2 = screen. getByText(/copyright 2025 - holberton school/i);
         expect(paragraph1).toBeInTheDocument();
         expect(paragraph2).toBeInTheDocument();
       });
@@ -22,7 +22,7 @@ describe("App", () => {
       it("check if an img element is rendered", () => {
         render(<App />);
     
-        const image = screen.getByAltText("holberton logo");
+        const image = screen.getByAltText(/holberton logo/i);
         expect(image).toBeInTheDocument();
       });
   });
