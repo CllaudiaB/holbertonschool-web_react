@@ -29,8 +29,8 @@ describe("App", () => {
       it("check input element", () => {
         render(<App />);
 
-        const inputEmail = screen.getByRole("textbox", {name: /email/i});
-        const inputPassword = screen.getByLabelText(/password/i);
+        const inputEmail = screen.getByLabelText(/email/i, {selector: "input"});
+        const inputPassword = screen.getByLabelText(/password/i, {selector: "input"});
 
         expect(inputEmail).toBeInTheDocument();
         expect(inputPassword).toBeInTheDocument();
