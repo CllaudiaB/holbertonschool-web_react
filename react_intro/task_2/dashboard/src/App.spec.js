@@ -49,8 +49,7 @@ describe("App", () => {
       it("check button with the text OK", () => {
         render(<App />);
 
-        const button = screen.getByText(/ok/i);
+        const button = screen.getByRole("button", {name: /ok/i});
         expect(button).toBeInTheDocument();
       });
-
   });
