@@ -14,7 +14,7 @@ describe("App", () => {
         render(<App />);
     
         const paragraph1 = screen.getByText(/login to access the full dashboard/i);
-        const paragraph2 = screen. getByText(/copyright 2024 - holberton school/i);
+        const paragraph2 = screen. getByText(/copyright 2025 - holberton school/i);
         expect(paragraph1).toBeInTheDocument();
         expect(paragraph2).toBeInTheDocument();
       });
@@ -25,4 +25,32 @@ describe("App", () => {
         const image = screen.getByAltText(/holberton logo/i);
         expect(image).toBeInTheDocument();
       });
+
+      it("check input element", () => {
+        render(<App />);
+
+        const inputEmail = screen.getByLabelText(/email:/i, {selector: "input"});
+        const inputPassword = screen.getByLabelText(/password:/i, {selector: "input"});
+
+        expect(inputEmail).toBeInTheDocument();
+        expect(inputPassword).toBeInTheDocument();
+      });
+
+      it("check label text", () => {
+        render(<App />);
+
+        const labelEmail = screen.getByText(/email/i);
+        const labelPassword = screen.getByText(/password/i);
+
+        expect(labelEmail).toBeInTheDocument();
+        expect(labelPassword).toBeInTheDocument();
+      });
+
+      it("check button with the text OK", () => {
+        render(<App />);
+
+        const button = screen.getByText(/ok/i);
+        expect(button).toBeInTheDocument();
+      });
+
   });
