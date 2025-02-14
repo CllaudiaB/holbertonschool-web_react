@@ -29,8 +29,8 @@ describe("App", () => {
       it("check input element", () => {
         render(<App />);
 
-        const inputEmail = screen.getByLabelText(/email:/i, {selector: "input"});
-        const inputPassword = screen.getByLabelText(/password:/i, {selector: "input"});
+        const inputEmail = screen.getByLabelText(/email/i, {selector: "input"});
+        const inputPassword = screen.getByLabelText(/password/i, {selector: "input"});
 
         expect(inputEmail).toBeInTheDocument();
         expect(inputPassword).toBeInTheDocument();
@@ -39,8 +39,8 @@ describe("App", () => {
       it("check label text", () => {
         render(<App />);
 
-        const labelEmail = screen.getByText(/email/i);
-        const labelPassword = screen.getByText(/password/i);
+        const labelEmail = screen.getByText(/email:/i);
+        const labelPassword = screen.getByText(/password:/i);
 
         expect(labelEmail).toBeInTheDocument();
         expect(labelPassword).toBeInTheDocument();
