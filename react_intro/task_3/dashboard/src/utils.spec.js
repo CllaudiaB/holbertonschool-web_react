@@ -3,7 +3,7 @@ import {getCurrentYear, getFooterCopy, getLatestNotification} from "./utils";
 
 test("current year", () => {
     const currentYear = getCurrentYear();
-    expect(currentYear).toEqual(2024);
+    expect(currentYear).toBe(2025);
 });
 
 test("correct string", () => {
