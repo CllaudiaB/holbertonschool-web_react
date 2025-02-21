@@ -3,7 +3,7 @@ import Notifications from './Notifications'
 
 
 describe("Notifications", () => {
-    it("check if the h1 element with the text Here is the list of notifications", () => {
+    it("check the existence of the notifications title Here is the list of notifications", () => {
       render(<Notifications />);
   
       const title = screen.getByText(/Here is the list of notifications/i);
