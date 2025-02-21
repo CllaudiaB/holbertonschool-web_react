@@ -1,5 +1,6 @@
 import closeButton from "../assets/close-button.png";
-import { getLatestNotification } from "../utils/utils.js";
+import { getLatestNotification } from "../utils/utils";
+import "./Notifications.css";
 
 function Notifications() {
   return (

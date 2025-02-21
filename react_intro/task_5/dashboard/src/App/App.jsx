@@ -1,8 +1,7 @@
 import holbertonLogo from "../assets/holberton-logo.jpg";
 import './App.css'
 import { getCurrentYear, getFooterCopy } from "../utils/utils.js";
-import Notifications from "../Notifications/Notifications.spec.jsx";
-import "../Notifications/Notifications.css";
+import Notifications from "../Notifications/Notifications";
 
 
 const currentYear = getCurrentYear();
