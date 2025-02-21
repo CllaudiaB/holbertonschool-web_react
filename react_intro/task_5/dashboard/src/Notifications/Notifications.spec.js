@@ -1,5 +1,5 @@
 import {render, screen} from '@testing-library/react'
-import Notifications from '../Notifications'
+import Notifications from './Notifications'
 
 
 describe("Notifications", () => {
