@@ -1,4 +1,4 @@
-import {getCurrentYear, getFooterCopy, getLatestNotification} from "./utils.js";
+import {getCurrentYear, getFooterCopy, getLatestNotification} from "../utils";
 
 
 test("current year", () => {

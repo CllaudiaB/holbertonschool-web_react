@@ -1,5 +1,5 @@
 import {render, screen} from '@testing-library/react'
-import App from './App.jsx'
+import App from './App'
 
 
 describe("App", () => {
@@ -14,7 +14,7 @@ describe("App", () => {
         render(<App />);
     
         const paragraph1 = screen.getByText(/login to access the full dashboard/i);
-        const paragraph2 = screen. getByText(/copyright 2024 - holberton school/i);
+        const paragraph2 = screen. getByText(/copyright 2025 - holberton school/i);
         expect(paragraph1).toBeInTheDocument();
         expect(paragraph2).toBeInTheDocument();
       });
