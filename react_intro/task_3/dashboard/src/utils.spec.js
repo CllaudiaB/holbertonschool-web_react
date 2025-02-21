@@ -17,5 +17,7 @@ test("correct string", () => {
 test("check return string", () => {
     const latestNotification = getLatestNotification();
 
-    expect(latestNotification).toBe("<strong>Urgent requirement</strong> - complete by EOD");
+    expect(latestNotification).toBe(
+        "<strong>Urgent requirement</strong> - complete by EOD"
+    );
 });
