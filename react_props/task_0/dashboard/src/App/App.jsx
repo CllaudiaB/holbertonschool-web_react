@@ -9,10 +9,10 @@ function App() {
     <>
       <div>
         <Notifications />
-        </div>
         <Header />
         <Login />
         <Footer />
+      </div>
     </>
   );
 }
