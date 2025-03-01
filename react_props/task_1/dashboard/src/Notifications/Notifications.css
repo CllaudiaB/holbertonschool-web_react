@@ -1,0 +1,15 @@
+.notifications {
+    border: dashed #e1003c;
+}
+
+p {
+    margin-left: 25px;
+}
+
+li {
+    color: red;
+}
+
+li:first-child {
+    color:blue;
+}
