@@ -11,7 +11,7 @@ describe("Header", () => {
     });
 
     it("check if an img element is rendered", () => {
-        render(<App />);
+        render(<Header />);
 
         const image = screen.getByAltText(/holberton logo/i);
         expect(image).toBeInTheDocument();
