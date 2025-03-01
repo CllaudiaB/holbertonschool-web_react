@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import userEvent from "@testing-library/user-event";
 import Login from "./Login";
 
 
@@ -23,8 +24,8 @@ describe("Login", () => {
     it("check label text", () => {
         render(<Login />);
 
-        const labelEmail = screen.getByRole("textbox", { name: /email:/i });
-        const labelPassword = screen.getByText(/password:/i);
+        const labelEmail = screen.getByRole("textbox", { name: /email/i });
+        const labelPassword = screen.getByText(/password/i);
 
         expect(labelEmail).toBeInTheDocument();
         expect(labelPassword).toBeInTheDocument();
@@ -35,5 +36,21 @@ describe("Login", () => {
 
         const button = screen.getByRole("button", { name: /ok/i });
         expect(button).toBeInTheDocument();
+    });
+
+    it("check if input element get focus when label is clicked", () => {
+        render(<Login />);
+
+        const labelEmail = screen.getByText(/email/i);;
+        const inputEmail = screen.getByLabelText(/email/i, { selector: "input" });
+
+        const labelPassword = screen.getByText(/password/i);
+        const inputPassword = screen.getByLabelText(/password/i, { selector: "input" });
+
+        userEvent.click(labelEmail);
+        expect(inputEmail).toHaveFocus();
+
+        userEvent.click(labelPassword);
+        expect(inputPassword).toHaveFocus();
     });
 });
