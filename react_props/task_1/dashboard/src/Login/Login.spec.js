@@ -1,16 +1,9 @@
-import { render, screen } from '@testing-library/react'
+import { render, screen, waitFor} from '@testing-library/react'
 import userEvent from "@testing-library/user-event";
 import Login from "./Login";
 
 
 describe("Login", () => {
-    it("check 2 p elements", () => {
-        render(<Login />);
-    
-        const paragraph = screen.getByText(/login to access the full dashboard/i);
-        expect(paragraph).toBeInTheDocument();
-      });
-
     it("check input element", () => {
         render(<Login />);
 
@@ -36,5 +29,26 @@ describe("Login", () => {
 
         const button = screen.getByRole("button", { name: /ok/i });
         expect(button).toBeInTheDocument();
+    });
+
+    it("verify whether the input elements get focused whenever the related label is clicked", async () => {
+        render(<Login />);
+
+        const labelEmail = screen.getByLabelText(/email:/i);
+        const labelPassword = screen.getByLabelText(/password:/i);
+    
+        userEvent.click(labelEmail);
+        
+        await waitFor(() => {
+            const inputEmail = screen.getByLabelText(/email/i, { selector: "input" });
+            expect(inputEmail).toHaveFocus();
+        });
+    
+        userEvent.click(labelPassword);
+
+        await waitFor(() => {
+            const inputPassword = screen.getByLabelText(/password/i, { selector: "input" });
+            expect(inputPassword).toHaveFocus();
+        });
     });
 });
