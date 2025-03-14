@@ -7,8 +7,12 @@ describe('NotificationItem', () => {
 
     const liElement = screen.getByText("New course available");
 
-    expect(liElement).toHaveStyle("color: blue");
+    expect(liElement).toBeInTheDocument();
+    expect(liElement.tagName).toBe("LI");
     expect(liElement).toHaveAttribute("data-notification-type", "default");
+
+    const style = window.getComputedStyle(liElement);
+    expect(style.color).toBe("blue");
   });
 
   it('should have red color and data-notification-type set to "urgent" when type is "urgent"', () => {
@@ -16,7 +20,11 @@ describe('NotificationItem', () => {
 
     const liElement = screen.getByText("New resume available");
 
-    expect(liElement).toHaveStyle("color: red");
+    expect(liElement).toBeInTheDocument();
+    expect(liElement.tagName).toBe("LI");
     expect(liElement).toHaveAttribute("data-notification-type", "urgent");
+
+    const style = window.getComputedStyle(liElement);
+    expect(style.color).toBe("red");
   });
 });
