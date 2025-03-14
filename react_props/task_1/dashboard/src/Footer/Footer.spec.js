@@ -8,9 +8,9 @@ const footerCopy = getFooterCopy(true);
 
 describe("Footer", () => {
     it("check elements", () => {
-        render(<Footer />);
+        render(<Footer isIndex="true"/>);
     
-        const paragraph = screen.getByText(`Copyright ${currentYear} - ${footerCopy}`);
+        const paragraph = screen.getByText(`Copyright ${currentYear} - Holberton School`);
         expect(paragraph).toBeInTheDocument();
       });
 });

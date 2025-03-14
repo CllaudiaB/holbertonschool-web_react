@@ -4,7 +4,7 @@ import Login from "./Login";
 
 
 describe("Login", () => {
-    it("check input element", () => {
+    it("check if 2 input, 2 label and button", () => {
         render(<Login />);
 
         const inputEmail = screen.getByLabelText(/email/i, { selector: "input" });
@@ -12,20 +12,12 @@ describe("Login", () => {
 
         expect(inputEmail).toBeInTheDocument();
         expect(inputPassword).toBeInTheDocument();
-    });
-
-    it("check label text", () => {
-        render(<Login />);
 
         const labelEmail = screen.getByRole("textbox", { name: /email:/i });
         const labelPassword = screen.getByText(/password:/i);
 
         expect(labelEmail).toBeInTheDocument();
         expect(labelPassword).toBeInTheDocument();
-    });
-
-    it("check button with the text OK", () => {
-        render(<Login />);
 
         const button = screen.getByRole("button", { name: /ok/i });
         expect(button).toBeInTheDocument();
