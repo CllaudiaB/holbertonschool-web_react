@@ -19,7 +19,7 @@ function CourseList({ courses = [] }) {
                                 textSecondCell={cours.credit} />;
                         })
                     ) : (
-                        <CourseListRow textFirstCell={"No course available yet"} />
+                        <CourseListRow isHeader={true} textFirstCell={"No course available yet"} textSecondCell={null} />
                     )}
                 </tbody>
 
