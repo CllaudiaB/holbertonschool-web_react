@@ -1,20 +1,24 @@
 import { render, screen } from "@testing-library/react";
 import Notifications from "./Notifications";
 
-describe("App", () => {
-  it("should not display close button, p element when displayDrawer is false", async () => {
-    render(<Notifications displayDrawer={false} />);
+describe("Notifications Component", () => {
+  it("should not display close button, p element when displayDrawer is false", () => {
+    render(<Notifications displayDrawer={false} notificationsList={[]} />);
 
     const button = screen.queryByAltText("Close icon");
-    const p = screen.queryByText(/here is the list of notifications/i);
-    const notificationText = screen.getByText("Your notifications");
-
     expect(button).not.toBeInTheDocument();
+
+    const p = screen.queryByText(/Here is the list of notifications/i);
     expect(p).not.toBeInTheDocument();
+
+    const noNotificationsText = screen.queryByText(/No new notification for now/i);
+    expect(noNotificationsText).not.toBeInTheDocument();
+
+    const notificationText = screen.getByText("Your notifications");
     expect(notificationText).toBeInTheDocument();
   });
 
-  it("should display close button, p element when displayDrawer is true", async () => {
+  it("should display close button, p element when displayDrawer is true", () => {
     const notificationsList = [
       { id: 1, type: "default", value: "New course available" },
       { id: 2, type: "urgent", value: "New resume available" },
@@ -35,7 +39,7 @@ describe("App", () => {
     const button = screen.getByRole("button");
     expect(button).toBeInTheDocument();
 
-    const p = screen.getByText(/here is the list of notifications/i);
+    const p = screen.getByText(/Here is the list of notifications/i);
     expect(p).toBeInTheDocument();
 
     const listItems = screen.getAllByRole("listitem");
@@ -45,8 +49,9 @@ describe("App", () => {
     expect(notificationText).toBeInTheDocument();
   });
 
-  it("should display displays the correct text when displayDrawer is true and notificationsList is empty", async () => {
-    render(<Notifications />);
+  it("should display 'No new notification for now' when displayDrawer is true and notificationsList is empty", () => {
+    render(<Notifications displayDrawer={true} notificationsList={[]} />);
+
     const p = screen.getByText(/No new notification for now/i);
     expect(p).toBeInTheDocument();
 

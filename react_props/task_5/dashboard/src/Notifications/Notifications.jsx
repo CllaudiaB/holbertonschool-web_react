@@ -6,10 +6,10 @@ import NotificationItem from "./NotificationItem";
 function Notifications({ notificationsList = [], displayDrawer = false }) {
   return (
     <>
-      <div notifications-title>
+      <div className="notifications-title">
         <p>Your notifications</p>
-        </div>
-      {displayDrawer ? (
+      </div>
+      {displayDrawer && (
         <div className="notifications">
           {notificationsList.length === 0 ? (
             <p>No new notification for now</p>
@@ -47,11 +47,14 @@ function Notifications({ notificationsList = [], displayDrawer = false }) {
             </>
           )}
         </div>
-      ) : (
-        ""
       )}
     </>
   );
 }
+
+Notifications.propTypes = {
+  notificationsList: PropTypes.array,
+  displayDrawer: PropTypes.bool,
+};
 
 export default Notifications;
