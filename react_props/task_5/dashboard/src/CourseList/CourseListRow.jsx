@@ -3,7 +3,7 @@ function CourseListRow({ isHeader = false, textFirstCell = "", textSecondCell = 
         <>
             <tr>
                 {isHeader ? (
-                    textSecondCell === null ? <th colspan="2">{textFirstCell}</th> :
+                    textSecondCell === null ? <th colSpan="2">{textFirstCell}</th> :
                     <><th>{textFirstCell}</th><th>{textSecondCell}</th></>) : 
                     <><td>{textFirstCell}</td><td>{textSecondCell}</td></>}
             </tr>
