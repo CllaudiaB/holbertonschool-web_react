@@ -1,40 +1,23 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { Component } from "react";
 
-class WithLogging extends React.Component {
-  componentName =
-    this.props.Component.displayName ||
-    this.props.Component.name ||
-    "Component";
+const withLogging = (WrappedComponent) => {
+  class WithLogging extends Component {
+    componentDidMount() {
+      console.log(`Component ${WrappedComponent.name || "Component"} is mounted`);
+    }
 
-  componentDidMount() {
-    console.log(`Component ${this.componentName} is mounted`);
+    componentWillUnmount() {
+      console.log(`Component ${WrappedComponent.name || "Component"} is going to unmount`);
+    }
+
+    render() {
+      return <WrappedComponent {...this.props} />;
+    }
   }
 
-  componentWillUnmount() {
-    console.log(`Component ${this.componentName} is going to unmount`);
-  }
+  WithLogging.displayName = `WithLogging(${WrappedComponent.displayName || WrappedComponent.name || "Component"})`;
 
-  static displayName = `WithLogging(${this.componentName})`;
-
-  render() {
-    const { Component, ...rest } = this.props;
-    return <Component {...rest} />;
-  }
-}
-
-export default function withLogging(WrappedComponent) {
-  function WithLoggingComponent(props) {
-    return <WithLogging WrappedComponent={WrappedComponent} {...props} />;
-  }
-
-  WithLoggingComponent.displayName = `WithLogging(${
-    WrappedComponent.displayName || WrappedComponent.name || "Component"
-  })`;
-
-  return WithLoggingComponent;
-}
-
-WithLogging.propTypes = {
-  Component: PropTypes.func,
+  return WithLogging;
 };
+
+export default withLogging;
