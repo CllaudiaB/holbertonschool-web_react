@@ -6,6 +6,7 @@ import Footer from "../Footer/Footer";
 import Login from "../Login/Login";
 import Courselist from "../CourseList/CourseList";
 import PropTypes from "prop-types";
+import BodySectionWithMarginBottom from "../BodySection/BodySectionWithMarginBottom";
 
 const notificationsList = [
   { id: 1, type: "default", value: "New course available" },
@@ -53,10 +54,17 @@ class App extends React.Component {
         </div>
         <Header />
         {this.state.isLoggedIn ? (
-          <Courselist courses={coursesList} />
+          <BodySectionWithMarginBottom title="Course list">
+            <Courselist courses={coursesList} />
+          </BodySectionWithMarginBottom>
         ) : (
-          <Login />
+          <BodySectionWithMarginBottom title="Log in to continue">
+            <Login />
+          </BodySectionWithMarginBottom>
         )}
+        <BodySectionWithMarginBottom title="News from the School">
+          <p>Holberton School News goes here</p>
+        </BodySectionWithMarginBottom>
         <Footer />
       </>
     );
