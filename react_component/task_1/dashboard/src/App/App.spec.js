@@ -62,4 +62,3 @@ describe("App", () => {
     alertMock.mockRestore();
   });
 });
-
