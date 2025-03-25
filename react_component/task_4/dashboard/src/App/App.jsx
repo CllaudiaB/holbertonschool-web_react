@@ -56,11 +56,11 @@ class App extends React.Component {
         <Header />
         {this.state.isLoggedIn ? (
           <BodySectionWithMarginBottom title="Course list">
-            <WithLogging Component={<Courselist courses={coursesList} />}/>
+            <WithLogging Component={Courselist} courses={coursesList} />
           </BodySectionWithMarginBottom>
         ) : (
           <BodySectionWithMarginBottom title="Log in to continue">
-            <WithLogging Component={<Login />} />
+            <WithLogging Component={Login} />
           </BodySectionWithMarginBottom>
         )}
         <BodySectionWithMarginBottom title="News from the School">

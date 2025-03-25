@@ -10,7 +10,9 @@ class MockApp extends React.Component {
 
 describe("HOC", () => {
   it("should render a heading element with the good text", () => {
-    render(<WithLogging Component={<MockApp />} />);
+    const WrappedMockApp = WithLogging(MockApp);
+
+    render(<WrappedMockApp />);
 
     const title = screen.getByRole("heading", {
       level: 1,
