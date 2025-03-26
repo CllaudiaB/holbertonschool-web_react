@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import Notifications from "./Notifications";
 
 describe("Notifications Component", () => {
@@ -65,7 +65,7 @@ describe("Notifications Component", () => {
     ];
     const consoleLogSpy = jest
       .spyOn(console, "log")
-      .mockImplementation(() => {}); // Spy on console.log
+      .mockImplementation(() => {});
 
     render(<Notifications notificationsList={notificationsList} />);
 
@@ -79,7 +79,7 @@ describe("Notifications Component", () => {
     consoleLogSpy.mockRestore();
   });
 
-  it("does not rerender when updating the props with the same list", () => {
+  it("should not rerender when updating the props with the same list", () => {
     const notificationsList = [
       { id: 1, type: "default", value: "Test notification" },
     ];
@@ -95,7 +95,7 @@ describe("Notifications Component", () => {
     expect(spy).toHaveBeenCalledTimes(1);
   });
 
-  it("does rerender when the length of the notifications List change", () => {
+  it("should rerender when the length of the notificationsList changes", () => {
     const notificationsList1 = [
       { id: 1, type: "default", value: "Test notification" },
     ];
@@ -113,6 +113,6 @@ describe("Notifications Component", () => {
 
     rerender(<Notifications notificationsList={notificationsList2} />);
 
-    expect(spy).toHaveBeenCalledTimes(3);
+    expect(spy).toHaveBeenCalledTimes(2);
   });
 });
