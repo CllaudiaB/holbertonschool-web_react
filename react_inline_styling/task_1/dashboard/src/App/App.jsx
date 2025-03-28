@@ -53,9 +53,7 @@ class App extends React.Component {
         <div className="root-notifications">
           <Notifications notificationsList={notificationsList} />
         </div>
-        <div>
         <Header />
-        </div>
         <div>
           {this.state.isLoggedIn ? (
             <BodySectionWithMarginBottom title="Course list">
@@ -67,11 +65,9 @@ class App extends React.Component {
             </BodySectionWithMarginBottom>
           )}
         </div>
-        <div>
-          <BodySectionWithMarginBottom title="News from the School">
-            <p>Holberton School News goes here</p>
-          </BodySectionWithMarginBottom>
-        </div>
+        <BodySectionWithMarginBottom title="News from the School">
+          <p>Holberton School News goes here</p>
+        </BodySectionWithMarginBottom>
         <div className={css(styles.footer)}>
           <Footer />
         </div>
