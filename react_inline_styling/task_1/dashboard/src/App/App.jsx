@@ -1,12 +1,13 @@
 import React from "react";
 import Notifications from "../Notifications/Notifications";
 import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
 import Login from "../Login/Login";
 import Courselist from "../CourseList/CourseList";
 import PropTypes from "prop-types";
 import BodySectionWithMarginBottom from "../BodySection/BodySectionWithMarginBottom";
 import WithLogging from "../HOC/WithLogging";
+import Footer from "../Footer/Footer";
+import { StyleSheet, css } from 'aphrodite';
 
 const notificationsList = [
   { id: 1, type: "default", value: "New course available" },
@@ -52,26 +53,42 @@ class App extends React.Component {
         <div className="root-notifications">
           <Notifications notificationsList={notificationsList} />
         </div>
+        <div>
         <Header />
-        {this.state.isLoggedIn ? (
-          <BodySectionWithMarginBottom title="Course list">
-            <WithLogging Component={Courselist} courses={coursesList} />
+        </div>
+        <div>
+          {this.state.isLoggedIn ? (
+            <BodySectionWithMarginBottom title="Course list">
+              <WithLogging Component={Courselist} courses={coursesList} />
+            </BodySectionWithMarginBottom>
+          ) : (
+            <BodySectionWithMarginBottom title="Log in to continue">
+              <WithLogging Component={Login} />
+            </BodySectionWithMarginBottom>
+          )}
+        </div>
+        <div>
+          <BodySectionWithMarginBottom title="News from the School">
+            <p>Holberton School News goes here</p>
           </BodySectionWithMarginBottom>
-        ) : (
-          <BodySectionWithMarginBottom title="Log in to continue">
-            <WithLogging Component={Login} />
-          </BodySectionWithMarginBottom>
-        )}
-        <BodySectionWithMarginBottom title="News from the School">
-          <p>Holberton School News goes here</p>
-        </BodySectionWithMarginBottom>
-        <Footer />
+        </div>
+        <div className={css(styles.footer)}>
+          <Footer />
+        </div>
       </>
     );
   }
 }
 
 export default App;
+
+const styles = StyleSheet.create({
+  footer: {
+    textAlign: "center",
+    fontStyle: "italic",
+    borderTop: "solid #e1003c",
+  }
+});
 
 App.propTypes = {
   isLoggedIn: PropTypes.bool,

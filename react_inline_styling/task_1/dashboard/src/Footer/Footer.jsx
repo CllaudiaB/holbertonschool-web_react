@@ -1,4 +1,3 @@
-import './Footer.css'
 import { getCurrentYear, getFooterCopy } from "../utils/utils.js";
 
 
