@@ -5,6 +5,7 @@ describe("Footer", () => {
   it("check elements", () => {
     render(<Footer />);
 
-    expect(screen.getByRole("paragraph")).toHaveTextContent("Copyright 2025 - Holberton School")
+    const paragraph = screen.getByText(/Copyright 2025 - Holberton School/i);
+    expect(paragraph.tagName).toBe('P');
   });
 });
