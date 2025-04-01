@@ -7,7 +7,8 @@ import CourseList from "../CourseList/CourseList";
 
 
 function App({isLoggedIn=true}) {
-  const notificationsList = [
+  let notificationsList = []
+  notificationsList = [
     {
       "id": 1,
       "type": "default",

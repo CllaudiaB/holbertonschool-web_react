@@ -1,4 +1,4 @@
-function NotificationItem({ type, value, html }) {
+function NotificationItem({ type, html, value }) {
     if(html){
         return <li style={{color: type === "default" ? "blue": "red"}} data-notification-type={type} dangerouslySetInnerHTML={{ __html: html }}></li>
     } else {
