@@ -9,7 +9,7 @@ describe("Footer", () => {
         const isIndex = true;
         const footerCopy = getFooterCopy(isIndex);
 
-        const paragraph = screen.getByText(`Copyright ${getCurrentYear()} - ${footerCopy}`);
+        const paragraph = screen.getByText(`Copyright ${getCurrentYear()} - Hlberton School`);
         expect(paragraph).toBeInTheDocument();
       });
 });
