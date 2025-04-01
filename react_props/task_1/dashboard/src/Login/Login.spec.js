@@ -13,7 +13,7 @@ describe("Login", () => {
         expect(inputEmail).toBeInTheDocument();
         expect(inputPassword).toBeInTheDocument();
 
-        const labelEmail = screen.getByRole(/email:/i);
+        const labelEmail = screen.getByText(/email:/i);
         const labelPassword = screen.getByText(/password:/i);
 
         expect(labelEmail).toBeInTheDocument();
