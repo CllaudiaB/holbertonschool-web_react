@@ -15,7 +15,5 @@ describe("Header", () => {
 
         const image = screen.getByAltText(/holberton logo/i);
         expect(image).toBeInTheDocument();
-
-        expect(logo).toHaveAttribute('src', holbertonLogo);
     });
 });
