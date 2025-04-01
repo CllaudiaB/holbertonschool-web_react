@@ -1,14 +1,11 @@
-import {render, screen} from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import Footer from './Footer'
 
 describe("Footer", () => {
-    it("check elements", () => {
-        render(<Footer isIndex={true}/>);
+  it("check elements", () => {
+    render(<Footer />);
 
-        if(isIndex) {
-          const paragraph = screen.getByText(`Copyright 2025 - Hlberton School`);
-        }
-
-        expect(paragraph).toBeInTheDocument();
-      });
+    const paragraph = screen.getByText(`Copyright 2025 - Hlberton School`);
+    expect(paragraph).toBeInTheDocument();
+  });
 });
