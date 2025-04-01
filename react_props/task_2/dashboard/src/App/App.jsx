@@ -6,7 +6,9 @@ import {getLatestNotification} from "../utils/utils";
 
 
 function App() {
-  const notificationsList = [
+  let notificationsList = [];
+
+  notificationsList = [
     {
       "id": 1,
       "type": "default",

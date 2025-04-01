@@ -1,7 +1,7 @@
 import closeButton from "../assets/close-button.png";
 import { getLatestNotification } from "../utils/utils";
 import NotificationItem from "./NotificationItem";
-import "./Notifications.css";
+import "./Notifications.css"
 
 function Notifications({ notificationsList=[] }) {
   return (
