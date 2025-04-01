@@ -1,0 +1,22 @@
+.App-header {
+  display: flex;
+  border-bottom: solid #e1003c;
+  color: #e1003c;
+  line-height: 330px;
+}
+
+.App-body {
+  border-bottom: solid #e1003c;
+  padding-bottom: 680px;
+}
+
+.App-body p {
+  margin-top: 35px;
+  margin-left: 40px;
+
+}
+
+.App-footer {
+  text-align: center;
+  font-style: italic;
+}
