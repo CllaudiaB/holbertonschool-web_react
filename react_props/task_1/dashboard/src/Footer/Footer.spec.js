@@ -3,7 +3,7 @@ import Footer from './Footer'
 
 describe("Footer", () => {
   it("check elements", () => {
-    render(<Footer />);
+    render(<Footer isIndex={true}/>);
 
     const paragraph = screen.getByText((content, element) => {
       return (
