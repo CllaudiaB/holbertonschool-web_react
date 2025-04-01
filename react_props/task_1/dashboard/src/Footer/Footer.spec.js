@@ -1,15 +1,14 @@
 import {render, screen} from '@testing-library/react'
 import Footer from './Footer'
-import { getCurrentYear, getFooterCopy} from "../utils/utils.js";
 
 describe("Footer", () => {
     it("check elements", () => {
-        render(<Footer/>); 
+        render(<Footer/>);
 
-        const isIndex = true;
-        const footerCopy = getFooterCopy(isIndex);
+        if(isIndex === true) {
+          const paragraph = screen.getByText(`Copyright 2025 - Hlberton School`);
+        }
 
-        const paragraph = screen.getByText(`Copyright ${getCurrentYear()} - Hlberton School`);
         expect(paragraph).toBeInTheDocument();
       });
 });
