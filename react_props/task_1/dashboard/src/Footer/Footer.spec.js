@@ -3,9 +3,9 @@ import Footer from './Footer'
 
 describe("Footer", () => {
     it("check elements", () => {
-        render(<Footer/>);
+        render(<Footer isIndex={true}/>);
 
-        if(isIndex === true) {
+        if(isIndex) {
           const paragraph = screen.getByText(`Copyright 2025 - Hlberton School`);
         }
 
