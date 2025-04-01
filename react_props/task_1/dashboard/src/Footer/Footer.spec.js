@@ -5,7 +5,7 @@ describe("Footer", () => {
   it("check elements", () => {
     render(<Footer />);
 
-    const paragraph = screen.getByText(`Copyright 2025 - Hlberton School`);
+    const paragraph = screen.getByText(`Copyright 2025 - Holberton School`);
     expect(paragraph).toBeInTheDocument();
   });
 });

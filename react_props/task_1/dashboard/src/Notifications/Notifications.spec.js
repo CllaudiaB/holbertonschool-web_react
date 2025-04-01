@@ -27,7 +27,7 @@ describe("Notifications", () => {
     it("logs 'Close button has been clicked' when the close button is clicked", () => {
         render(<Notifications />);
 
-        const consoleLogSpy = jest.spyOn(console, 'log').mockImplementation();
+        const consoleLogSpy = jest.spyOn(console, 'log').mockImplementation(() => {});
         const closeButton = screen.getByRole("button");
         fireEvent.click(closeButton);
 
