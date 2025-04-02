@@ -44,7 +44,7 @@ class App extends Component {
           credit: 40,
         },
       ],
-      isLoggedIn: true, // default value for isLoggedIn
+      isLoggedIn: true,
     };
   }
 
