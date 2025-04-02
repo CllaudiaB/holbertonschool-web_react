@@ -2,11 +2,11 @@ import Notifications from "../Notifications/Notifications";
 import Header from "../Header/Header";
 import Login from "../Login/Login";
 import Footer from "../Footer/Footer";
-import {getLatestNotification} from "../utils/utils";
+import { getLatestNotification } from "../utils/utils";
 import CourseList from "../CourseList/CourseList";
 
 
-function App({isLoggedIn=true}) {
+function App({ isLoggedIn = true }) {
   let notificationsList = []
   notificationsList = [
     {
@@ -25,6 +25,7 @@ function App({isLoggedIn=true}) {
       "value": getLatestNotification(),
     },
   ];
+
   const coursesList = [
     {
       "id": 4,
@@ -45,11 +46,11 @@ function App({isLoggedIn=true}) {
   return (
     <>
       <div>
-        <Notifications notificationsList={notificationsList}/>
-        <Header />
-        {!isLoggedIn ? <Login /> : <CourseList courses={coursesList}/>}
-        <Footer />
+        <Notifications notificationsList={notificationsList} />
       </div>
+      <Header />
+      {!isLoggedIn ? <Login /> : <CourseList courses={coursesList} />}
+      <Footer />
     </>
   );
 }

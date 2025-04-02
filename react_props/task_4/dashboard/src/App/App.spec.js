@@ -17,7 +17,7 @@ describe("App", () => {
   });
 
   it("Login component", () => {
-    render(<App />);
+    render(<App isLoggedIn={false}/>);
 
     expect(
       screen.getByText(/Login to access the full dashboard/i)
