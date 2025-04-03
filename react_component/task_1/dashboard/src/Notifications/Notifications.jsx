@@ -3,13 +3,11 @@ import "./Notifications.css";
 import closeImage from "../assets/close-button.png";
 import NotificationItem from "./NotificationItem";
 
-function Notifications({ notificationsList = [], displayDrawer = false }) {
+function Notifications({ notificationsList = [], displayDrawer = true }) {
   return (
     <>
-      <div className="notifications-title">
-        <p>Your notifications</p>
-      </div>
-      {displayDrawer && (
+      <div>Your notifications</div>
+      {displayDrawer ? (
         <div className="notifications">
           {notificationsList.length === 0 ? (
             <p>No new notification for now</p>
@@ -40,21 +38,22 @@ function Notifications({ notificationsList = [], displayDrawer = false }) {
                     key={notification.id}
                     type={notification.type}
                     value={notification.value}
-                    html={notification.value}
                   />
                 ))}
               </ul>
             </>
           )}
         </div>
+      ) : (
+        ""
       )}
     </>
   );
 }
 
+export default Notifications;
+
 Notifications.propTypes = {
-  notificationsList: PropTypes.array,
+  notificationsList: PropTypes.arrayOf(PropTypes.object),
   displayDrawer: PropTypes.bool,
 };
-
-export default Notifications;

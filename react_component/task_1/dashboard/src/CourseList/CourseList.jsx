@@ -7,11 +7,15 @@ function CourseList({ courses = [] }) {
         <>
             <table id="CourseList">
                 <thead>
-                    <CourseListRow isHeader={true} textFirstCell={"Available courses"} textSecondCell={null} />
-                    <CourseListRow isHeader={true} textFirstCell={"Course name"} textSecondCell={"Credit"} />
+                    {courses.length > 0 && (
+                        <>
+                            <CourseListRow isHeader={true} textFirstCell={"Available courses"} textSecondCell={null} />
+                            <CourseListRow isHeader={true} textFirstCell={"Course name"} textSecondCell={"Credit"} />
+                        </>
+                    )}
                 </thead>
                 <tbody>
-                    {courses.length >= 1 ? (
+                    {courses.length > 0 ? (
                         courses.map(function (cours) {
                             return <CourseListRow
                                 key={cours.id}
