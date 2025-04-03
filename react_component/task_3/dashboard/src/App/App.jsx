@@ -5,6 +5,7 @@ import Login from "../Login/Login";
 import Footer from "../Footer/Footer";
 import { getLatestNotification } from "../utils/utils";
 import CourseList from "../CourseList/CourseList";
+import BodySectionWithMarginBottom from "../BodySection/BodySectionWithMarginBottom";
 
 class App extends Component {
   constructor(props) {
