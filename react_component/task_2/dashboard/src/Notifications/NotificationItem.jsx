@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 class NotificationItem extends React.Component {
   render() {
@@ -18,11 +17,3 @@ class NotificationItem extends React.Component {
 }
 
 export default NotificationItem;
-
-NotificationItem.propTypes = {
-  id: PropTypes.number,
-  type: PropTypes.string.isRequired,
-  html: PropTypes.string,
-  value: PropTypes.string.isRequired,
-  markAsRead: PropTypes.func,
-};
