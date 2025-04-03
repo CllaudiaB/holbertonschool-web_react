@@ -25,4 +25,3 @@ describe("BodySection component", () => {
     expect(screen.getByText("Child 2")).toBeInTheDocument();
   });
 });
-
