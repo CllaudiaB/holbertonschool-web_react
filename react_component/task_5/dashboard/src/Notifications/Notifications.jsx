@@ -1,36 +1,33 @@
-import React from "react";
+import React, { Component } from "react";
 import PropTypes from "prop-types";
 import "./Notifications.css";
 import closeImage from "../assets/close-button.png";
 import NotificationItem from "./NotificationItem";
 
-class Notifications extends React.Component {
+class Notifications extends Component {
   constructor(props) {
     super(props);
-    this.markAsRead = this.markAsRead.bind(this);
   }
 
   shouldComponentUpdate(nextProps) {
-    if (
+    return (
       nextProps.notificationsList.length !== this.props.notificationsList.length
-    )
-      return true;
-
-    return false;
+    );
   }
 
-  markAsRead(id) {
+  markAsRead = (id) => {
     console.log(`Notification ${id} has been marked as read`);
-  }
+  };
 
   render() {
     const { notificationsList, displayDrawer } = this.props;
+
     return (
       <>
         <div className="notifications-title">
           <p>Your notifications</p>
         </div>
-        {displayDrawer ? (
+        {displayDrawer && (
           <div className="notifications">
             {notificationsList.length === 0 ? (
               <p>No new notification for now</p>
@@ -61,16 +58,14 @@ class Notifications extends React.Component {
                       key={notification.id}
                       type={notification.type}
                       value={notification.value}
-                      html={notification.html}
-                      markAsRead={this.markAsRead.bind(this, notification.id)}
+                      html={notification.value}
+                      markAsRead={this.markAsRead}
                     />
                   ))}
                 </ul>
               </>
             )}
           </div>
-        ) : (
-          ""
         )}
       </>
     );
@@ -78,13 +73,8 @@ class Notifications extends React.Component {
 }
 
 Notifications.propTypes = {
-  notificationsList: PropTypes.arrayOf(PropTypes.object),
+  notificationsList: PropTypes.array,
   displayDrawer: PropTypes.bool,
-};
-
-Notifications.defaultProps = {
-  notificationsList: [],
-  displayDrawer: true,
 };
 
 export default Notifications;
