@@ -83,9 +83,9 @@ class App extends Component {
              <Login />
            </BodySectionWithMarginBottom>
          )}
-         <BodySection title="News from the School">
+         <BodySectionWithMarginBottom title="News from the School">
            <p>Holberton School News goes here</p>
-         </BodySection>
+         </BodySectionWithMarginBottom>
         </div>
       </>
     );
