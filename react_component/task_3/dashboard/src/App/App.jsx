@@ -49,6 +49,7 @@ class App extends Component {
       isLoggedIn: false
     };
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.state = { isLoggedIn: props.isLoggedIn || false };
   }
 
   componentDidMount() {
@@ -75,7 +76,7 @@ class App extends Component {
         <div>
           <Notifications notificationsList={notificationsList} />
           <Header />
-          {!this.state.isLoggedIn ? (<BodySectionWithMarginBottom title="Log in to continue"><Login /></BodySectionWithMarginBottom>) : (<BodySectionWithMarginBottom title="Course list"><CourseList courses={coursesList} /></BodySectionWithMarginBottom>)}
+          {!this.state.isLoggedIn ? <BodySectionWithMarginBottom title="Log in to continue"><Login /></BodySectionWithMarginBottom> : <BodySectionWithMarginBottom title="Course list"><CourseList courses={coursesList} /></BodySectionWithMarginBottom>}
           <BodySection title="News from the School">
             <p>Holberton School News goes here</p>
           </BodySection>
