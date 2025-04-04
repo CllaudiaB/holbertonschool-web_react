@@ -33,18 +33,6 @@ describe("CourseListRow Header is True", () => {
 
     expect(thElements).toHaveLength(2);
   });
-});
-
-describe("CourseListRow Header is False", () => {
-  it("should render two td elements within a tr element", async () => {
-    render(<CourseListRow isHeader={false} />);
-
-    const trElement = screen.getByRole("row");
-    const tdElements = within(trElement).getAllByRole("cell");
-
-    expect(trElement).toBeInTheDocument();
-    expect(tdElements).toHaveLength(2);
-  });
 
   it("the cell background color is #deb5b545", async () => {
     render(

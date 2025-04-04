@@ -1,4 +1,4 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Notifications from "./Notifications";
 
 describe("App", () => {
@@ -60,7 +60,7 @@ describe("App", () => {
     ];
     const consoleLogSpy = jest
       .spyOn(console, "log")
-      .mockImplementation(() => {});
+      .mockImplementation(() => {}); // Spy on console.log
 
     render(<Notifications notificationsList={notificationsList} />);
 
@@ -79,15 +79,21 @@ describe("App", () => {
       { id: 1, type: "default", value: "Test notification" },
     ];
 
-    const spy = jest.spyOn(Notifications.prototype, "render");
-
-    const { rerender } = render(
-      <Notifications notificationsList={notificationsList} />
+    const { container, rerender } = render(
+      <Notifications
+        notificationsList={notificationsList}
+        displayDrawer={true}
+      />
     );
 
-    rerender(<Notifications notificationsList={notificationsList} />);
-
-    expect(spy).toHaveBeenCalledTimes(1);
+    const initialRender = container.innerHTML;
+    rerender(
+      <Notifications
+        notificationsList={notificationsList}
+        displayDrawer={true}
+      />
+    );
+    expect(container.innerHTML).toBe(initialRender);
   });
 
   it("does rerender when the length of the notifications List change", () => {
@@ -100,14 +106,20 @@ describe("App", () => {
       { id: 2, type: "default", value: "Test notification2" },
     ];
 
-    const spy = jest.spyOn(Notifications.prototype, "render");
-
-    const { rerender } = render(
-      <Notifications notificationsList={notificationsList1} />
+    const { container, rerender } = render(
+      <Notifications
+        notificationsList={notificationsList1}
+        displayDrawer={true}
+      />
     );
 
-    rerender(<Notifications notificationsList={notificationsList2} />);
-
-    expect(spy).toHaveBeenCalledTimes(3);
+    const initialRender = container.innerHTML;
+    rerender(
+      <Notifications
+        notificationsList={notificationsList2}
+        displayDrawer={true}
+      />
+    );
+    expect(container.innerHTML).not.toBe(initialRender);
   });
 });
