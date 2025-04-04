@@ -1,5 +1,5 @@
 import React from "react";
-import { render, screen } from "@testing-library/react";
+import { render, unmountComponentAtNode } from "@testing-library/react";
 import WithLogging from "./WithLogging";
 
 class MockApp extends React.Component {
@@ -8,17 +8,37 @@ class MockApp extends React.Component {
   }
 }
 
-describe("HOC", () => {
-  it("should render a heading element with the good text", () => {
-    const WrappedMockApp = WithLogging(MockApp);
+const MockAppWithLogging = WithLogging(MockApp);
 
-    render(<WrappedMockApp />);
+describe("WithLogging HOC", () => {
+  let container = null;
 
-    const title = screen.getByRole("heading", {
-      level: 1,
-      name: /Hello from Mock App Component/i,
-    });
+  beforeEach(() => {
+    container = document.createElement("div");
+    document.body.appendChild(container);
+  });
 
-    expect(title).toBeInTheDocument();
+  afterEach(() => {
+    unmountComponentAtNode(container);
+    container.remove();
+  });
+
+  it("renders the Wrapped component and displays the correct text", () => {
+    render(<MockAppWithLogging />, container);
+
+    expect(container.querySelector("h1").textContent).toBe(
+      "Hello from Mock App Component"
+    );
+  });
+
+  it("logs the correct messages during mount and unmount", () => {
+    console.log = jest.fn();
+
+    const { unmount } = render(<MockAppWithLogging />, container);
+
+    expect(console.log).toHaveBeenCalledWith("Component MockApp is mounted");
+
+    unmount();
+    expect(console.log).toHaveBeenCalledWith("Component MockApp is going to unmount");
   });
 });
