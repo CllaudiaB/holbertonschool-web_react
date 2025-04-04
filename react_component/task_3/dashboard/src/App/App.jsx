@@ -74,11 +74,18 @@ class App extends Component {
         <div>
           <Notifications notificationsList={notificationsList} />
           <Header />
-          {!this.state.isLoggedIn ? <BodySectionWithMarginBottom title="Log in to continue"><Login /></BodySectionWithMarginBottom> : <BodySectionWithMarginBottom title="Course list"><CourseList courses={coursesList} /></BodySectionWithMarginBottom>}
-          <BodySection title="News from the School">
-            <p>Holberton School News goes here</p>
-          </BodySection>
-          <Footer />
+          {this.state.isLoggedIn ? (
+           <BodySectionWithMarginBottom title="Course list">
+             <CourseList courses={coursesList} />
+           </BodySectionWithMarginBottom>
+         ) : (
+           <BodySectionWithMarginBottom title="Log in to continue">
+             <Login />
+           </BodySectionWithMarginBottom>
+         )}
+         <BodySection title="News from the School">
+           <p>Holberton School News goes here</p>
+         </BodySection>
         </div>
       </>
     );
