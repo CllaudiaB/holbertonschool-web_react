@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function CourseListRow({ isHeader = true, textFirstCell = "", textSecondCell = null }) {
     return (
         <>
@@ -27,3 +29,9 @@ function CourseListRow({ isHeader = true, textFirstCell = "", textSecondCell = n
 };
 
 export default CourseListRow;
+
+CourseListRow.propTypes = {
+    isHeader: PropTypes.bool,
+    textFirstCell: PropTypes.string,
+    textSecondCell: PropTypes.string,
+  };
