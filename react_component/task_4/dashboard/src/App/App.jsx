@@ -6,7 +6,8 @@ import Footer from "../Footer/Footer";
 import { getLatestNotification } from "../utils/utils";
 import CourseList from "../CourseList/CourseList";
 import BodySectionWithMarginBottom from "../BodySection/BodySectionWithMarginBottom";
-
+import BodySection from "../BodySection/BodySection";
+import WithLogging from "../HOC/WithLogging";
 
 class App extends Component {
   constructor(props) {
@@ -49,6 +50,7 @@ class App extends Component {
       isLoggedIn: false
     };
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.state = { isLoggedIn: props.isLoggedIn || false };
   }
 
   componentDidMount() {
@@ -65,7 +67,7 @@ class App extends Component {
       this.props.logOut();
     }
   }
-
+  
 
   render() {
     const { notificationsList, coursesList, isLoggedIn } = this.state;
@@ -75,7 +77,7 @@ class App extends Component {
         <div>
           <Notifications notificationsList={notificationsList} />
           <Header />
-          {!this.state.isLoggedIn ? <BodySectionWithMarginBottom title="Log in to continue"><Login /></BodySectionWithMarginBottom> : <BodySectionWithMarginBottom title="Course list"><CourseList courses={coursesList} /></BodySectionWithMarginBottom>}
+          {!this.state.isLoggedIn ? <BodySectionWithMarginBottom title="Log in to continue"><WithLogging ><Login /></WithLogging ></BodySectionWithMarginBottom> : <BodySectionWithMarginBottom title="Course list"><WithLogging ><CourseList courses={coursesList} /></WithLogging ></BodySectionWithMarginBottom>}
           <BodySection title="News from the School">
             <p>Holberton School News goes here</p>
           </BodySection>
@@ -87,7 +89,7 @@ class App extends Component {
 }
 
 App.defaultProps = {
-  logOut: () => { },
+  logOut: () => {},
 };
 
 export default App;
