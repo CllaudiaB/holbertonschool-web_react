@@ -16,12 +16,18 @@ describe("Notifications", () => {
         const button = screen.getByRole("button");
         expect(button).toBeInTheDocument();
     });
-    
-    it("Verify that there are 3 li elements", () => {
-        render(<Notifications />);
 
-        const items = screen.getAllByRole("listitem")
-        expect(items).toHaveLength(3)
+    it("test child component", () => {
+    const testNotifications = [
+        { id: 1, type: "default", value: "New course available" },
+        { id: 2, type: "default", value: "New resume available" },
+        { id: 3, type: "urgent", value: "Urgent requirement" },
+        ];
+    const { getByText } = render(<Notifications notificationsList={testNotifications}/>);
+
+    expect(getByText(/New course available/i)).toBeInTheDocument();
+    expect(getByText(/New resume available/i)).toBeInTheDocument();
+    expect(getByText(/Urgent requirement/i)).toBeInTheDocument();
     });
 
     it("logs 'Close button has been clicked' when the close button is clicked", () => {
