@@ -1,6 +1,6 @@
 import {render, screen, fireEvent} from '@testing-library/react'
 import Notifications from './Notifications'
-
+import { getLatestNotification } from '../utils/utils';
 
 describe("Notifications", () => {
     it("check the existence of the notifications title Here is the list of notifications", () => {
@@ -21,7 +21,7 @@ describe("Notifications", () => {
     const testNotifications = [
         { id: 1, type: "default", value: "New course available" },
         { id: 2, type: "urgent", value: "New resume available" },
-        { id: 3, type: "urgent", value: "Urgent requirement" },
+        { id: 3, type: "urgent", html: getLatestNotification() },
         ];
     const { getByText } = render(<Notifications notificationsList={testNotifications}/>);
 
