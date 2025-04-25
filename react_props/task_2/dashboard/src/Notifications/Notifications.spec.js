@@ -1,4 +1,4 @@
-import {render, screen, fireEvent} from '@testing-library/react'
+import {render, screen, fireEvent, getAllByDisplayValue} from '@testing-library/react'
 import Notifications from './Notifications'
 import { getLatestNotification } from '../utils/utils';
 
@@ -21,13 +21,14 @@ describe("Notifications", () => {
     const testNotifications = [
         { id: 1, type: "default", value: "New course available" },
         { id: 2, type: "urgent", value: "New resume available" },
-        { id: 3, type: "urgent", html: getLatestNotification() },
+        { id: 3, type: "urgent", value: getLatestNotification() },
         ];
     const { getByText } = render(<Notifications notificationsList={testNotifications}/>);
 
     expect(getByText(/New course available/i)).toBeInTheDocument();
     expect(getByText(/New resume available/i)).toBeInTheDocument();
-    expect(getByText(/Urgent requirement/i)).toBeInTheDocument();
+    const lastItem = getByText('complete by EOD', { exact: false })
+    expect(lastItem.textContent).toEqual("Urgent requirement - complete by EOD");
     });
 
     it("logs 'Close button has been clicked' when the close button is clicked", () => {
