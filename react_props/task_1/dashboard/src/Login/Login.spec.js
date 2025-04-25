@@ -13,8 +13,8 @@ describe("Login", () => {
         expect(inputEmail).toBeInTheDocument();
         expect(inputPassword).toBeInTheDocument();
 
-        const labelEmail = screen.getByText(/email:/i);
-        const labelPassword = screen.getByText(/password:/i);
+        const labelEmail = screen.getByText(/email/i);
+        const labelPassword = screen.getByText(/password/i);
 
         expect(labelEmail).toBeInTheDocument();
         expect(labelPassword).toBeInTheDocument();
@@ -26,8 +26,8 @@ describe("Login", () => {
     it("verify whether the input elements get focused whenever the related label is clicked", async () => {
         render(<Login />);
 
-        const labelEmail = screen.getByLabelText(/email:/i);
-        const labelPassword = screen.getByLabelText(/password:/i);
+        const labelEmail = screen.getByLabelText(/email/i);
+        const labelPassword = screen.getByLabelText(/password/i);
     
         userEvent.click(labelEmail);
         
