@@ -20,7 +20,7 @@ describe("Notifications", () => {
     it("test child component", () => {
     const testNotifications = [
         { id: 1, type: "default", value: "New course available" },
-        { id: 2, type: "default", value: "New resume available" },
+        { id: 2, type: "urgent", value: "New resume available" },
         { id: 3, type: "urgent", value: "Urgent requirement" },
         ];
     const { getByText } = render(<Notifications notificationsList={testNotifications}/>);
